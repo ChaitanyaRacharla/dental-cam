@@ -1,16 +1,8 @@
-# dentalcam
+# Smartphone application for Dental Fluorescent Imaging
 
-A new Flutter project.
+This mobile application enables to click photos of oral cavity in both white light and auto fluorescent light. This will be useful in determining oral cavities and oral cancer in its early stages. Developed using Dart, Flutter and Arduino IDE.
 
-## Getting Started
+There are some requirement applications for this, their links are provided below
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. [Arduino Blutooth Control](https://play.google.com/store/apps/details?id=com.giumig.apps.bluetoothserialmonitor)
+2. [USB camera](https://play.google.com/store/apps/details?id=com.shenyaocn.android.usbcamera) 
