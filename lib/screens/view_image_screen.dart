@@ -7,6 +7,8 @@ import '../widgets/pic_picker.dart';
 import '../widgets/pic_picker2.dart';
 import 'dart:io';
 
+import '../widgets/pic_picker3.dart';
+
 class ViewImageScreen extends StatefulWidget {
   const ViewImageScreen({Key? key}) : super(key: key);
   static const routeName = '/view-image';
@@ -17,14 +19,20 @@ class ViewImageScreen extends StatefulWidget {
 class _ViewImageScreenState extends State<ViewImageScreen> {
   final _titleController = TextEditingController();
   final _ageController = TextEditingController();
+  final _descriptionController = TextEditingController();
   File? _pickedImage;
   File? _pickedImage2;
+  File? _pickedImage3;
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
   }
 
   void _selectImage2(File pickedImage2) {
     _pickedImage2 = pickedImage2;
+  }
+
+  void _selectImage3(File pickedImage3) {
+    _pickedImage3 = pickedImage3;
   }
 
   final snackBar = const SnackBar(
@@ -34,7 +42,9 @@ class _ViewImageScreenState extends State<ViewImageScreen> {
   void _saveImage() {
     if (_titleController.text.isEmpty &&
         _pickedImage == null &&
-        _ageController.text.isEmpty) {
+        _ageController.text.isEmpty &&
+        _pickedImage2 == null &&
+        _descriptionController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
     Provider.of<Patients>(context, listen: false).addPatient(
@@ -42,6 +52,8 @@ class _ViewImageScreenState extends State<ViewImageScreen> {
       _ageController.text,
       _pickedImage as File,
       _pickedImage2 as File,
+      _pickedImage3 as File,
+      _descriptionController.text,
     );
     Navigator.of(context).pop();
   }
@@ -99,7 +111,19 @@ class _ViewImageScreenState extends State<ViewImageScreen> {
                     PicPicker(_selectImage),
                     // ToggleButtons(children: children, isSelected: isSelected)
                     PicPicker2(_selectImage2),
+                    PicPicker3(_selectImage3)
                   ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15.0,
+                vertical: 5.0,
+              ),
+              child: TextField(
+                controller: _descriptionController,
+                decoration:
+                    const InputDecoration(labelText: 'Patient description'),
+              ),
             ),
           ],
         ),
