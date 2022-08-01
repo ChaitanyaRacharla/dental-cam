@@ -17,36 +17,79 @@ class ViewPatientsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("${selectedPatient.title} - ${selectedPatient.age}"),
       ),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: SizedBox(
-              height: 250,
-              width: double.infinity,
-              child: Image.file(
-                selectedPatient.image,
-                fit: BoxFit.cover,
-                width: double.infinity,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Description',
+                      textScaleFactor: 1.5,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: SizedBox(
-              height: 250,
-              width: double.infinity,
-              child: Image.file(
-                selectedPatient.image2,
-                fit: BoxFit.cover,
-                width: double.infinity,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      selectedPatient.description,
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: SizedBox(
+                height: 250,
+                width: double.infinity,
+                child: Image.file(
+                  selectedPatient.image,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: SizedBox(
+                height: 250,
+                width: double.infinity,
+                child: Image.file(
+                  selectedPatient.image2,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: SizedBox(
+                height: 250,
+                width: double.infinity,
+                child: Image.file(
+                  selectedPatient.image3,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
