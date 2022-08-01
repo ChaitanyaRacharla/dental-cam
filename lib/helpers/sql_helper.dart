@@ -8,7 +8,7 @@ class SQLHelper {
     return sql.openDatabase(path.join(sqlPath, 'patients.db'),
         onCreate: (db, version) {
       return db.execute(
-          'CREATE TABLE patients(id TEXT PRIMARY KEY, title TEXT, age TEXT, image TEXT, image2 TEXT, image3 TEXT, description TEXT)');
+          'CREATE TABLE patients(id TEXT PRIMARY KEY, title TEXT, age TEXT, image BLOB, image2 BLOB, image3 BLOB, description TEXT)');
     }, version: 1);
   }
 
